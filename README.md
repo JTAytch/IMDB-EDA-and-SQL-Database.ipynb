@@ -32,6 +32,8 @@ The emphasis throughout is on **clarity, reproducibility, and professional polis
     ├── Part3_ETL_PostgreSQL_SQL_Showcase.ipynb
 📁 docs/                # (Optional) ERDs, visuals, or charts
 README.md
+```
+
 
 ## 🧩 Workflow Summary
 
