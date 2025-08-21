@@ -32,3 +32,41 @@ The emphasis throughout is on **clarity, reproducibility, and professional polis
     ├── Part3_ETL_PostgreSQL_SQL_Showcase.ipynb
 📁 docs/                # (Optional) ERDs, visuals, or charts
 README.md
+
+## 🧩 Workflow Summary
+
+### **Part 0 – Extract & Clean**
+- Pulled `title.basics` and `title.ratings` TSV files from IMDb.
+- Filtered to valid movie records with runtime, release year, and genre data.
+- Normalized genres into lookup/join tables for relational structure.
+- Compressed cleaned outputs to keep the repo lightweight.
+
+### **Part 1 – Exploratory Data Analysis**
+- Initial profiling of the IMDb dataset.
+- Checked distributions, missing values, and baseline trends to guide enrichment.
+
+### **Part 2 – TMDb API Enrichment**
+- Connected to TMDb with a locally stored API key (`~/.secret/TMDB_api.json`, ignored by Git).
+- Added budget, revenue, and MPAA certification for proof‑of‑concept years (2000–2001).
+- Merged results into combined CSV for downstream use.
+- Graceful‑fail handling so the notebook runs even without API access.
+
+### **Part 3 – PostgreSQL ETL + SQL Showcase**
+- Auto‑created `movies` database and tables if missing.
+- Loaded all cleaned and enriched datasets into a normalized schema.
+- Built a unified `movies` table via joins.
+- Wrote a SQL showcase covering:
+  - Aggregations by genre
+  - Top‑N filtering
+  - Multi‑table joins
+  - Window functions (Top 3 titles per genre)
+
+---
+
+## 📊 SQL Showcase Highlights
+- **Top 10** highest‑rated movies
+- **Average ratings** by genre
+- **Best movie** in each genre (by rating)
+- Join of IMDb ratings with TMDb popularity
+- Genre title counts
+- **ROW_NUMBER()** usage for Top 3 per genre
